@@ -107,6 +107,7 @@ function overeniBodu(hozenaKostka,pricitani){
     else if(hozenaKostka == 6)
     {
         pocet6+=pricitani;
+        
         console.log(pocet6);
     }
 
