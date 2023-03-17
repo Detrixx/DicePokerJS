@@ -84,8 +84,7 @@ function overeniBodu(hozenaKostka,pricitani){
         console.log(pocet1);
     }
     else if(hozenaKostka == 2)
-    {
-        
+    {  
         pocet2+=pricitani;
         console.log(pocet2);
     }
