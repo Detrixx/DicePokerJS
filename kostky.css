@@ -1,0 +1,14 @@
+
+p{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    display: inline-block;
+    border: 3px solid black;
+}
+p.celkem ,p.mezisoucet,p.oznaceno{
+    border: 0;
+    display:grid;
+    height: 30px;
+    text-align: left;
+}
