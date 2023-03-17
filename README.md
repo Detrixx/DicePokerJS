@@ -1,0 +1,2 @@
+# kostkyPokerJS
+kostkový poker
