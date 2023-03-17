@@ -113,7 +113,7 @@ function overeniBodu(hozenaKostka,pricitani){
     
 }
 
-
+ 
 
 function overeniVyhry(pricitani){
     //hod po 6
