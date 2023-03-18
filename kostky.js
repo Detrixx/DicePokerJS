@@ -2,7 +2,6 @@ let hozenaKostka1,hozenaKostka2,hozenaKostka3,hozenaKostka4,hozenaKostka5,hozena
 let kostky = [];
 let hozenaKostka=0, vyhra=0;
 let pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
-let x1=0, x2=0, x3=0, x4=0, x5=0, x6=0;
 let _x, _hozenakostka=0;
 let kostka;
 let pocet;
@@ -23,7 +22,6 @@ function hozeni(){
 }
 
 function odznaceni(){
-    x1=0, x2=0, x3=0, x4=0, x5=0, x6=0;
     pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
     vyhra=0;
     kostka1.style.borderColor = "black";
@@ -40,11 +38,11 @@ function kliknutiNaKostku(_cislokostky,hodnotaOznaceneKostky){
     if(kostka.style.borderColor == "black"){
         kostka.style.borderColor = "red";
         overeniBodu(hodnotaOznaceneKostky,1);       
-        overeniVyhry(1);
+        overeniVyhry(hodnotaOznaceneKostky,1);
     }
     else{
         kostka.style.borderColor = "black";
-        overeniVyhry(-1);
+        overeniVyhry(hodnotaOznaceneKostky,-1);
         overeniBodu(hodnotaOznaceneKostky,-1);  
     }
 }
@@ -113,54 +111,59 @@ function overeniBodu(hozenaKostka,pricitani){
     
 }
 
+
  
 
-function overeniVyhry(pricitani){
+function overeniVyhry(_hodnotaOznaceneKostky,pricitani){
+    //postupka 1-5 nebo 2-6
+    
+    if(pocet1==1&&pocet2==1&&pocet3==1&&pocet4==1&&pocet5==1){vyhra +=350 * pricitani}
+    else if(pocet2==1&&pocet3==1&&pocet4==1&&pocet5==1&&pocet6==1){vyhra +=700 * pricitani}
     //hod po 6
-    if(pocet1==4){vyhra +=2000 * pricitani}
-    if(pocet2==4){vyhra +=800 * pricitani}
-    if(pocet3==4){vyhra +=1200 * pricitani}
-    if(pocet4==4){vyhra +=1600 * pricitani}
-    if(pocet5==4){vyhra +=2000 * pricitani}
-    if(pocet6==4){vyhra +=2400 * pricitani}
+    if(pocet1==6&& _hodnotaOznaceneKostky==1){vyhra +=1900 * pricitani}
+    if(pocet2==6&& _hodnotaOznaceneKostky==2){vyhra +=800 * pricitani}
+    if(pocet3==6&& _hodnotaOznaceneKostky==3){vyhra +=1200 * pricitani}
+    if(pocet4==6&& _hodnotaOznaceneKostky==4){vyhra +=1600 * pricitani}
+    if(pocet5==6&& _hodnotaOznaceneKostky==5){vyhra +=1950 * pricitani}
+    if(pocet6==6&& _hodnotaOznaceneKostky==6){vyhra +=2400 * pricitani}
     //hod po 5
-    if(pocet1==5){vyhra +=1000 * pricitani}
-    if(pocet2==5){vyhra +=400 * pricitani}
-    if(pocet3==5){vyhra +=600 * pricitani}
-    if(pocet4==5){vyhra +=800 * pricitani}
-    if(pocet5==5){vyhra +=1000 * pricitani}
-    if(pocet6==5){vyhra +=1200 * pricitani}
+    if(pocet1==5&& _hodnotaOznaceneKostky==1){vyhra +=1900 * pricitani}
+    if(pocet2==5&& _hodnotaOznaceneKostky==2){vyhra +=400 * pricitani}
+    if(pocet3==5&& _hodnotaOznaceneKostky==3){vyhra +=600 * pricitani}
+    if(pocet4==5&& _hodnotaOznaceneKostky==4){vyhra +=800 * pricitani}
+    if(pocet5==5&& _hodnotaOznaceneKostky==5){vyhra +=950 * pricitani}
+    if(pocet6==5&& _hodnotaOznaceneKostky==6){vyhra +=1200 * pricitani}
     //hod po 4
-    if(pocet1==4){vyhra +=1000 * pricitani}
-    if(pocet2==4){vyhra +=200 * pricitani}
-    if(pocet3==4){vyhra +=300 * pricitani}
-    if(pocet4==4){vyhra +=400 * pricitani}
-    if(pocet5==4){vyhra +=500 * pricitani}
-    if(pocet6==4){vyhra +=600 * pricitani}
+    if(pocet1==4&& _hodnotaOznaceneKostky==1){vyhra +=900 * pricitani}
+    if(pocet2==4&& _hodnotaOznaceneKostky==2){vyhra +=200 * pricitani}
+    if(pocet3==4&& _hodnotaOznaceneKostky==3){vyhra +=300 * pricitani}
+    if(pocet4==4&& _hodnotaOznaceneKostky==4){vyhra +=400 * pricitani}
+    if(pocet5==4&& _hodnotaOznaceneKostky==5){vyhra +=450 * pricitani}
+    if(pocet6==4&& _hodnotaOznaceneKostky==6){vyhra +=600 * pricitani}
     //hod po 3
-    if(pocet2==3){vyhra +=200 * pricitani}
-    if(pocet3==3){vyhra +=300 * pricitani}
-    if(pocet4==3){vyhra +=400 * pricitani}
-    if(pocet5==3){vyhra +=400 * pricitani}
-    if(pocet6==3){vyhra +=600 * pricitani}
+    if(pocet2==3&& _hodnotaOznaceneKostky==2){vyhra +=200 * pricitani}
+    if(pocet3==3&& _hodnotaOznaceneKostky==3){vyhra +=300 * pricitani}
+    if(pocet4==3&& _hodnotaOznaceneKostky==4){vyhra +=400 * pricitani}
+    if(pocet5==3&& _hodnotaOznaceneKostky==5){vyhra +=350 * pricitani}
+    if(pocet6==3&& _hodnotaOznaceneKostky==6){vyhra +=600 * pricitani}
 
-    if(pocet1==3)
+    if(pocet1==3 && _hodnotaOznaceneKostky==1)
     {
-
-        vyhra +=800 * pricitani;
-        
+        vyhra +=700 * pricitani;  
     }
 
-    if(pocet1>=1)
+    if(pocet1>=1 && _hodnotaOznaceneKostky==1)
     {
         vyhra += (100 * pricitani);
-        pocet+= pricitani;    
+        pocet+= pricitani;
+
     }
-    if(pocet5>=1)
+    if(pocet5>=1 && _hodnotaOznaceneKostky==5)
     {  
         vyhra += (50 * pricitani);
         pocet+= pricitani;    
     }
+    if(pocet1==1&&pocet2==1&&pocet3==1&&pocet4==1&&pocet5==1&&pocet6==1){if(pricitani==1){vyhra =1500}else{vyhra=0}}
 
     console.log(vyhra);
    
