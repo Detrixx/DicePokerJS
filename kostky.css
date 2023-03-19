@@ -5,6 +5,7 @@ p{
     text-align: center;
     display: inline-block;
     border: 3px solid black;
+    border-color: black;
 }
 p.celkem ,p.mezisoucet,p.oznaceno{
     border: 0;

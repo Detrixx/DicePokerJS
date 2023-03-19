@@ -4,34 +4,77 @@ let hozenaKostka=0, vyhra=0;
 let pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
 let _x, _hozenakostka=0;
 let kostka;
-let pocet;
+let pocet,celkovaVyhra=0;
+
+kostka1.style.borderColor = "black";
+kostka2.style.borderColor = "black";
+kostka3.style.borderColor = "black";
+kostka4.style.borderColor = "black";
+kostka5.style.borderColor = "black";
+kostka6.style.borderColor = "black";
+hozeni();
+
+
 function hozeni(){
-   
+    
+    if(kostka1.style.borderColor == "black"){
     hozenaKostka1 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka1').innerHTML = hozenaKostka1;
+    }
+    else {kostka1.style.borderColor = "green"}
+
+    if(kostka2.style.borderColor == "black"){
     hozenaKostka2 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka2').innerHTML = hozenaKostka2;
+    }  
+    else{kostka2.style.borderColor = "green"} 
+    if(kostka3.style.borderColor == "black"){
     hozenaKostka3 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka3').innerHTML = hozenaKostka3;
+    }
+    else{kostka3.style.borderColor = "green"} 
+    if(kostka4.style.borderColor == "black"){
     hozenaKostka4 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka4').innerHTML = hozenaKostka4;
+    }
+    else{kostka4.style.borderColor = "green"} 
+    if(kostka5.style.borderColor == "black"){
     hozenaKostka5 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka5').innerHTML = hozenaKostka5;
+    }
+    else{kostka5.style.borderColor = "green"} 
+    if(kostka6.style.borderColor == "black"){
     hozenaKostka6 = Math.ceil((Math.random() * 6),0);
     document.getElementById('kostka6').innerHTML = hozenaKostka6;
+    }
+    else{kostka6.style.borderColor = "green"} 
+ 
+}
+function hozeniKontrola(){
+    if(vyhra!=0){
+    hozeni();
+    }
+    else{
+        alert("Prohra");
+    }
 }
 
 function odznaceni(){
+    if(vyhra!=0){
+    celkovaVyhra+=vyhra;
     pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
     vyhra=0;
-    kostka1.style.borderColor = "black";
-    kostka2.style.borderColor = "black";
-    kostka3.style.borderColor = "black";
-    kostka4.style.borderColor = "black";
-    kostka5.style.borderColor = "black";
-    kostka6.style.borderColor = "black";
+    console.log(celkovaVyhra);
+    }
+    else{
+        vyhra=0;
+    }
+
+
+
 
 }
+
 
 function kliknutiNaKostku(_cislokostky,hodnotaOznaceneKostky){
     kostka = document.querySelector(`#kostka${_cislokostky}`);
