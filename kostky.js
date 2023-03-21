@@ -48,6 +48,8 @@ function hozeni(){
     document.getElementById('kostka6').innerHTML = hozenaKostka6;
     }
     else{kostka6.style.borderColor = "green"} 
+
+    
  
 }
 function hozeniKontrola(){
