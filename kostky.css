@@ -1,5 +1,5 @@
 
-p{
+p[id^=kostka]{
     width: 100px;
     height: 100px;
     text-align: center;
@@ -13,3 +13,15 @@ p.celkem ,p.mezisoucet,p.oznaceno{
     height: 30px;
     text-align: left;
 }
+div#hrac1{
+    width: 50%;
+    float: left;
+}
+div#hrac2{
+    width: 50%;
+    float: right;
+}
+p {
+    display: inline;
+}
+

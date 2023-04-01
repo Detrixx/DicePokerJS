@@ -4,71 +4,122 @@ let hozenaKostka=0, vyhra=0;
 let pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
 let _x, _hozenakostka=0;
 let kostka;
-let pocet,celkovaVyhra=0;
-let maBody =0;
+let pocet,celkovaVyhra=0,vyhraZaCeleKolo=0;
+let maBody =0,pocetKol=0;
+let hodnotaHozeniHrac2=0;
 
-kostka1.style.borderColor = "black";
-kostka2.style.borderColor = "black";
-kostka3.style.borderColor = "black";
-kostka4.style.borderColor = "black";
-kostka5.style.borderColor = "black";
-kostka6.style.borderColor = "black";
-hozeni();
+resetovani();
 
 
 function hozeni(){
     
     if(kostka1.style.borderColor == "black"){
-    hozenaKostka1 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka1 = nahodneCislo();
     document.getElementById('kostka1').innerHTML = hozenaKostka1;
     }
     else {kostka1.style.borderColor = "green"}
     if(kostka2.style.borderColor == "black"){
-    hozenaKostka2 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka2 = nahodneCislo();
     document.getElementById('kostka2').innerHTML = hozenaKostka2;
     }  
     else{kostka2.style.borderColor = "green"} 
     if(kostka3.style.borderColor == "black"){
-    hozenaKostka3 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka3 = nahodneCislo();
     document.getElementById('kostka3').innerHTML = hozenaKostka3;
     }
     else{kostka3.style.borderColor = "green"} 
     if(kostka4.style.borderColor == "black"){
-    hozenaKostka4 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka4 = nahodneCislo();
     document.getElementById('kostka4').innerHTML = hozenaKostka4;
     }
     else{kostka4.style.borderColor = "green"} 
     if(kostka5.style.borderColor == "black"){
-    hozenaKostka5 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka5 = nahodneCislo();
     document.getElementById('kostka5').innerHTML = hozenaKostka5;
     }
     else{kostka5.style.borderColor = "green"} 
     if(kostka6.style.borderColor == "black"){
-    hozenaKostka6 = Math.ceil((Math.random() * 6),0);
+    hozenaKostka6 = nahodneCislo();
     document.getElementById('kostka6').innerHTML = hozenaKostka6;
     }
     else{kostka6.style.borderColor = "green"} 
+    vsechnyZelene();
 }
+//zkontroluje zda to jsou výherní kostky 
 function hozeniKontrola(){
-    if(vyhra!=0 ){
+    if(maBody>=1)
+    {
+        alert("Žádná výhra")
+    }
+    else if(vyhra!=0){
     hozeni();
     }
-    else{
-        alert("Prohra");
+}
+function vsechnyZelene(){
+    if(kostka1.style.borderColor == "green" &&kostka2.style.borderColor == "green"&&kostka3.style.borderColor == "green" &&kostka4.style.borderColor == "green" &&kostka5.style.borderColor == "green"&&kostka6.style.borderColor == "green" )
+    {   kostka1.style.borderColor = "black";
+    kostka2.style.borderColor = "black";
+    kostka3.style.borderColor = "black";
+    kostka4.style.borderColor = "black";
+    kostka5.style.borderColor = "black";
+    kostka6.style.borderColor = "black";
+    hozeni();
     }
 }
+function nahodneCislo(){
+    return Math.ceil((Math.random() * 6),0);
+}
 
+//restartuje počty kostek + výhry
 function odznaceni(){
-    if(vyhra!=0){
+    if(maBody>=1)
+    {
+    }
+    else if(vyhra!=0){
     celkovaVyhra+=vyhra;
     pocet1=0,pocet2=0,pocet3=0,pocet4=0,pocet5=0,pocet6=0;
     vyhra=0;
-    console.log(celkovaVyhra);
+    document.getElementById('mezisoucet').innerHTML = celkovaVyhra;
+    document.getElementById('oznaceno').innerHTML = 0;
     }
     else{
         vyhra=0;
     }
 
+}
+function resetovani(){
+    celkovaVyhra =0;
+    vyhra=0;
+    document.getElementById('oznaceno').innerHTML = 0;
+    document.getElementById('mezisoucet').innerHTML = 0;
+    kostka1.style.borderColor = "black";
+    kostka2.style.borderColor = "black";
+    kostka3.style.borderColor = "black";
+    kostka4.style.borderColor = "black";
+    kostka5.style.borderColor = "black";
+    kostka6.style.borderColor = "black";
+    pocetKol+=1;
+    console.log(pocetKol);
+    hozeni();
+}
+
+function ukonceniKola(){
+    if(vyhra !=0){
+    vyhraZaCeleKolo += celkovaVyhra + vyhra;
+    document.getElementById('celkem').innerHTML = vyhraZaCeleKolo;
+    if(celkovaVyhra>3000)
+    {
+        alert("Gratuluji vyhráli jste (hra bude automaticky restartována)")
+        celkovaVyhra=0;
+        vyhraZaCeleKolo=0;
+        hodnotaHozeniHrac2 = 0;
+        document.getElementById('celkem').innerHTML = vyhraZaCeleKolo;
+        document.getElementById('celkemHrac2').innerHTML = hodnotaHozeniHrac2;
+
+    }
+    resetovani();
+    hozeniHrac2();
+}
 }
 
 
@@ -87,28 +138,40 @@ function kliknutiNaKostku(_cislokostky,hodnotaOznaceneKostky){
 }
 
 document.querySelector('#kostka1').addEventListener('click', () => {
+    if(kostka1.style.borderColor != "green"){
     kliknutiNaKostku(1,hozenaKostka1);
+    }
 
 
 });
 document.querySelector('#kostka2').addEventListener('click', () => {
+    if(kostka2.style.borderColor != "green"){
     kliknutiNaKostku(2,hozenaKostka2);
+}
 
 });
 document.querySelector('#kostka3').addEventListener('click', () => {
+    if(kostka3.style.borderColor != "green"){
     kliknutiNaKostku(3,hozenaKostka3);
+}
 
 });
 document.querySelector('#kostka4').addEventListener('click', () => {
+    if(kostka4.style.borderColor != "green"){
     kliknutiNaKostku(4,hozenaKostka4);
+}
 
 });
 document.querySelector('#kostka5').addEventListener('click', () => {
+    if(kostka5.style.borderColor != "green"){
     kliknutiNaKostku(5,hozenaKostka5);
+}
 
 });
 document.querySelector('#kostka6').addEventListener('click', () => {
+    if(kostka6.style.borderColor != "green"){
     kliknutiNaKostku(6,hozenaKostka6);
+}
 
 });
 
@@ -118,33 +181,26 @@ function overeniBodu(hozenaKostka,pricitani){
     if(hozenaKostka == 1)
     {
         pocet1+=pricitani;
-        console.log(pocet1);
     }
     else if(hozenaKostka == 2)
     {  
         pocet2+=pricitani;
-        console.log(pocet2);
     }
     else if(hozenaKostka == 3)
     {
         pocet3+=pricitani;
-        console.log(pocet3);
     }
     else if(hozenaKostka == 4)
     {
         pocet4+=pricitani;
-        console.log(pocet4);
     }
     else if(hozenaKostka == 5)
     {
         pocet5+=pricitani;
-        console.log(pocet5);
     }
     else if(hozenaKostka == 6)
     {
         pocet6+=pricitani;  
-        
-        console.log(pocet6);
     }
 
     
@@ -207,12 +263,28 @@ function overeniVyhry(_hodnotaOznaceneKostky,pricitani){
     
     if(puvodniVyhra==vyhra)
     {
+        //označená nevýherní kostka
         maBody += pricitani;
     }
     
 
-    console.log("maBody",maBody);
-    console.log(vyhra);
+    document.getElementById('oznaceno').innerHTML = vyhra;
    
+}
+function hozeniHrac2(){
+    
+    hodnotaHozeniHrac2 += Math.ceil((Math.random() * 700),0);
+document.getElementById('celkemHrac2').innerHTML = hodnotaHozeniHrac2;
+if(hodnotaHozeniHrac2>3000)
+    {
+        alert("Prohráli jste! (hra bude automaticky restartována)")
+        celkovaVyhra=0;
+        hodnotaHozeniHrac2 = 0;
+        vyhraZaCeleKolo=0;
+        document.getElementById('celkem').innerHTML = vyhraZaCeleKolo;
+        document.getElementById('celkemHrac2').innerHTML = hodnotaHozeniHrac2;
+
+    }
+
 }
 

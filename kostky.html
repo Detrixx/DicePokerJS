@@ -9,7 +9,7 @@
 </head>
 <body>
 
-
+<div id="hrac1">
     <div id="kostkyH" class="kostkyH">
         <p id="kostka1">0</p>
         <p id="kostka2">0</p>
@@ -18,14 +18,23 @@
         <p id="kostka5">0</p>
         <p id="kostka6">0</p> 
     </div>
-    <p class="celkem">Celkem: </p>
-    <p class="mezisoucet">Mezisoučet: </p>
-    <p class="oznaceno">Označeno: </p>
+    Celkem: <p id="celkem">0</p> / 3000 <br><br>
+    Mezisoučet: <p id="mezisoucet">0</p> <br><br>
+    Označeno: <p id="oznaceno">0</p> <br><br>
 
-    <button type="button" class="btn" onclick="hozeniKontrola(),odznaceni()">Hodit</button>
+    <button type="button" class="btn" onclick="hozeniKontrola(),odznaceni()">Zaskórovat a házet znovu</button>
+    <br/>
+    <br/>
+    <button type="button" onclick="ukonceniKola()">Zaskórovat a ukončit kolo</button>
+    <br/>
+    <br/>
+    <button type="button" onclick="resetovani(),hozeniHrac2()">Ukončit kolo</button>
 
- </table>
-
+</div>
+<div id="hrac2">
+Hráč 2 <br> <br>
+Celkem: <p id="celkemHrac2">0</p>
+</div>
     
 </body>
 </html>
