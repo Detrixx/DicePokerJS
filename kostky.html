@@ -29,12 +29,82 @@
     <br/>
     <br/>
     <button type="button" onclick="resetovani(),hozeniHrac2()">Ukončit kolo</button>
+    <br/><br/><br/><br/>
+    <p onclick="toggleDetails()">Nápověda</p>
+   
+    
+</div>
+
+<div id="napoveda">
+    <p>Cílem této hry je jako první dosáhnout určeného počtu bodů.</p> <br>
+    <p>Hází se šesti kostkami a hráči se v házení postupně střídají.</p> <br>
+    <p>Body se získávají za každou vybranou jedničku, pětku a tři a více stejných kostek.</p> <br>
+    <p>A to následovně:</p> <br> <br>
+    <img src="kostkyTvar/1.png">
+    <p>je za 100 bodů</p> <br> <br>
+    <img src="kostkyTvar/5.png">
+    <p>je za 50 bodů</p> <br> <br>
+    <p>tři stejná čísla jsou za 100 bodů vynásobeno hodnotou čísla, tedy</p> <br> <br>
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <p>je za 400 bodů</p> <br> <br>
+    <img src="kostkyTvar/1.png">
+    <img src="kostkyTvar/1.png">
+    <img src="kostkyTvar/1.png">
+    <p>je za 1000 bodů</p> <br> <br>
+    <p>čtyři a více stejných kostek zdvojnásobují hodnotu, která je za tři stejné kostky,</p><br>
+    <p>tedy</p>
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <p>jsou za 800 bodů,</p>
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <p>za 1600 bodů,</p> 
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/4.png">
+    <p>za 3200 bodů.</p> <br> <br>
+    <img src="kostkyTvar/1.png">
+    <img src="kostkyTvar/2.png">
+    <img src="kostkyTvar/3.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/5.png">
+    <img src="kostkyTvar/6.png">
+    <p>je za 1500 bodů</p> <br>
+    <img src="kostkyTvar/1.png">
+    <img src="kostkyTvar/2.png">
+    <img src="kostkyTvar/3.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/5.png">
+    <p>je za 500 bodů</p> <br>
+    <img src="kostkyTvar/2.png">
+    <img src="kostkyTvar/3.png">
+    <img src="kostkyTvar/4.png">
+    <img src="kostkyTvar/5.png">
+    <img src="kostkyTvar/6.png">
+    <p>je za 750 bodů.</p> <br> <br> <br>
+    <p>Kolo začíná pro hráče vždy hodem všech šesti kostek. Z nich si pomocí kliknutí vybere bodované kostky, přičemž musí vybrat alespoň jednu bodovanou kostku. Zbylými kostkami pak může házet přes tlačítko "Zaskórovat a házet znovu" znovu a postup se opakuje. Bodované kombinace se počítají pro hod. ne pro celé kolo. </p> <br> <br>
+    <p>Celý háček hry je v tom, že když v hodu nepadne ani jedna bodovatelná kostka tak hráč je nucen zmáčknout tlačítko "Ukončit kolo", všechny body naházené v kole propadají a házení přechází na protihráče. Proto je potřeba kolo ukončit včas pomocí tlačítka "Zaskórovat a ukončit kolo" dřív, než významně naroste riziko, že nepadne žádná bodovaná kostka. Také se často vyplatí neoznačit všechny obodovatelné kostky a zvýšit si tak šance pro lepší výsledek v následujícím hodu.</p> <br> <br>
+
+
+</div>
+
 
 </div>
 <div id="hrac2">
 Hráč 2 <br> <br>
-Celkem: <p id="celkemHrac2">0</p>
+Celkem: <p id="celkemHrac2">0</p> / 3000
 </div>
+  
     
 </body>
 </html>
