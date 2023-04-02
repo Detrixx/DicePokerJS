@@ -103,7 +103,6 @@ function resetovani(){
     kostka6.style.borderColor = "black";
     pocet1=0;pocet2=0;pocet3=0;pocet4=0;pocet5=0;pocet6=0;
     pocetKol+=1;
-    console.log(pocetKol);
     hozeni();
 }
 
@@ -278,10 +277,7 @@ function overeniVyhry(_hodnotaOznaceneKostky,pricitani){
         //označená nevýherní kostka
         maBody += pricitani;
     }
-    
 
-    console.log("Vyhra:",vyhra);
-    console.log("pricitani",pricitani);
     document.getElementById('oznaceno').innerHTML = vyhra;
    
 }
